@@ -6,7 +6,10 @@ const createStudentModel = require ('./student.js')
 // we create a env variable call NODE_ENV 
 const env = process.env.NODE_ENV || "development"
 
+const dbPassword = process.env.DB_PASSWORD
+
 const config = configJson[env] // read the configuration object 
+config.password = dbPassword
 
 const sequelize = new Sequelize(config)
 
